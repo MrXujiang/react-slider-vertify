@@ -1,9 +1,11 @@
-import { defineConfig } from 'umi';
+import { defineConfig } from 'dumi';
 
 export default defineConfig({
-  nodeModulesTransform: {
-    type: 'none',
-  },
-  routes: [{ path: '/', component: '@/pages/index' }],
-  fastRefresh: {},
+  title: 'slider-vertify',
+  favicon: 'http://h5.dooring.cn/uploads/logo_1742fd359da.png',
+  logo: 'http://h5.dooring.cn/uploads/logo_1742fd359da.png',
+  outputPath: '../dooring-bs/server/static/slider-vertify',
+  base: '/slider-vertify/',
+  publicPath: '/slider-vertify/',
+  // more config: https://d.umijs.org/config
 });

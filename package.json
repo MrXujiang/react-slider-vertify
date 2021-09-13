@@ -1,13 +1,7 @@
 {
-  "scripts": {
-    "start": "umi dev",
-    "build": "umi build",
-    "postinstall": "umi generate tmp",
-    "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
-  },
-  "name": "react-slider-vertify-demo",
+  "name": "@alex_xu/react-slider-vertify",
+  "version": "1.0.5",
+  "author": "alex_xu",
   "description": "Slide verification component based on react",
   "keywords": [
     "component",
@@ -22,6 +16,34 @@
     "react-slider-vertify",
     "徐小夕"
   ],
+  "scripts": {
+    "start": "dumi dev",
+    "docs:build": "dumi build",
+    "docs:deploy": "gh-pages -d docs-dist",
+    "build": "father-build",
+    "deploy": "npm run docs:build && npm run docs:deploy",
+    "release": "npm run build && npm publish --access public",
+    "prettier": "prettier --write \"**/*.{js,jsx,tsx,ts,less,md,json}\"",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage"
+  },
+  "contributors": [
+    "alex_xu"
+  ],
+  "files": [
+    "dist",
+    "lib",
+    "es"
+  ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "browserslist": [
+    "last 2 version",
+    "Firefox ESR",
+    "> 1%",
+    "ie >= 9"
+  ],
+  "typings": "dist/index.d.ts",
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
@@ -33,21 +55,32 @@
       "prettier --parser=typescript --write"
     ]
   },
+  "homepage": "https://github.com/MrXujiang/react-slider-vertify",
+  "bugs": {
+    "url": "https://github.com/MrXujiang/react-slider-vertify/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com:MrXujiang/react-slider-vertify.git"
+  },
   "dependencies": {
-    "@alex_xu/react-slider-vertify": "^1.0.4",
-    "@ant-design/pro-layout": "^6.5.0",
-    "react": "17.x",
-    "react-dom": "17.x",
-    "umi": "^3.5.17"
+    "@babel/runtime": "^7.15.4",
+    "react": "^16.9.23"
+  },
+  "resolutions": {
+    "@types/react": "^16.9.23"
   },
   "devDependencies": {
-    "@types/react": "^17.0.0",
-    "@types/react-dom": "^17.0.0",
-    "@umijs/preset-react": "1.x",
-    "@umijs/test": "^3.5.17",
+    "@umijs/test": "^3.0.5",
+    "dumi": "^1.0.16",
+    "father-build": "^1.17.2",
+    "gh-pages": "^3.0.0",
     "lint-staged": "^10.0.7",
-    "prettier": "^2.2.0",
-    "typescript": "^4.1.2",
+    "prettier": "^2.2.1",
     "yorkie": "^2.0.0"
+  },
+  "license": "MIT",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.com"
   }
 }
