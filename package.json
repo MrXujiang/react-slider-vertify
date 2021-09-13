@@ -4,6 +4,8 @@
   "author": "alex_xu",
   "description": "Slide verification component based on react",
   "keywords": [
+    "slider-vertify",
+    "react-slider-vertify",
     "component",
     "components",
     "design",
@@ -12,8 +14,6 @@
     "react",
     "react-component",
     "ui",
-    "slider-vertify",
-    "react-slider-vertify",
     "徐小夕"
   ],
   "scripts": {
