@@ -20,7 +20,7 @@ $ npm i @alex_xu/react-slider-vertify
 
 ```tsx
 import React, { useState } from 'react';
-import { Vertify } from 'react-slider-vertify';
+import { Vertify } from '@alex_xu/react-slider-vertify';
 
 export default () => {
   const [visible, setVisible] = useState(false);
