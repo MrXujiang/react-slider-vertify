@@ -1,6 +1,6 @@
 {
   "name": "@alex_xu/react-slider-vertify",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "alex_xu",
   "description": "Slide verification component based on react",
   "keywords": [
@@ -64,7 +64,9 @@
     "url": "git+https://github.com:MrXujiang/react-slider-vertify.git"
   },
   "dependencies": {
-    "@babel/runtime": "^7.15.4",
+    "@babel/runtime": "^7.15.4"
+  },
+  "peerDependencies": {
     "react": "^16.9.23"
   },
   "resolutions": {
