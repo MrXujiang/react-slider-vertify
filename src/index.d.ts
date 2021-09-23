@@ -59,3 +59,5 @@ interface IVertifyProp {
 }
 
 declare const Vertify: React.FC<IVertifyProp>;
+
+export { Vertify };
