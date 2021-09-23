@@ -1,6 +1,6 @@
 {
   "name": "@alex_xu/react-slider-vertify",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "author": "alex_xu",
   "description": "Slide verification component based on react",
   "keywords": [
@@ -37,7 +37,7 @@
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
-  "typings": "./index.d.ts",
+  "typings": "dist/index.d.ts",
   "browserslist": [
     "last 2 version",
     "Firefox ESR",
