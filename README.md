@@ -1,3 +1,4 @@
+[![npm downloads](https://img.shields.io/npm/dm/@alex_xu/react-slider-vertify.svg?style=flat-square)](http://npm-stat.com/charts.html?package=@alex_xu/react-slider-vertify) ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@alex_xu/react-slider-vertify) ![APM](https://img.shields.io/npm/l/@alex_xu/react-slider-vertify?style=flat-square)
 ## Hello react-slider-vertify!
 
 react-slider-vertify 是一款前端实现的滑动验证码组件, 我们可以通过它轻松的控制验证的整个生命周期(刷新时, 验证成功时, 验证失败时的回调), 并拥有一定的配置化能力.
