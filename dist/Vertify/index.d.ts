@@ -1,5 +1,11 @@
 import React, { ReactNode } from 'react';
 import './index.less';
+interface VertifyType {
+  spliced: boolean;
+  verified: boolean;
+  left: number;
+  destX: number;
+}
 interface IVertifyProp {
   /**
    * @description   canvas宽度
@@ -42,6 +48,16 @@ interface IVertifyProp {
    */
   imgUrl?: string;
   /**
+   * @description   拖拽滑块时的回调, 参数为当前滑块拖拽的距离
+   * @default       (l: number):void => {}
+   */
+  onDraw?: (l: number) => {};
+  /**
+   * @description   用户的自定义验证逻辑
+   * @default       (arg: VertifyType) => VertifyType
+   */
+  onCustomVertify?: (arg: VertifyType) => VertifyType;
+  /**
    * @description   验证成功回调
    * @default       ():void => {}
    */
@@ -67,6 +83,8 @@ declare const _default: React.MemoExoticComponent<
     text,
     refreshIcon,
     visible,
+    onDraw,
+    onCustomVertify,
     onSuccess,
     onFail,
     onRefresh,

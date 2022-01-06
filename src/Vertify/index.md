@@ -50,6 +50,36 @@ export default () => {
 };
 ```
 
+### 用户自定义验证逻辑:
+
+组件暴露了`onCustomVertify`方法, 并接受收了入参`vertify`对象, 我们可以控制 `spliced` 和`verified` 属性来控制是否验证成功, 即函数返回值必须包含 `spliced` 和 `verified` 两个布尔值的属性对象
+
+```tsx
+import React from 'react';
+import { Vertify } from '@alex_xu/react-slider-vertify';
+
+export default () => {
+  const handleCustomVertify = (vertify) => {
+    console.log(vertify, Math.abs(left - destX) < 5);
+    const { destX, left, spliced, verified } = vertify;
+    return {
+      spliced: Math.abs(left - destX) < 5,
+      verified,
+    };
+  };
+  return (
+    <Vertify
+      width={320}
+      height={160}
+      onCustomVertify={handleCustomVertify}
+      onSuccess={() => alert('success')}
+      onFail={() => alert('fail')}
+      onRefresh={() => alert('refresh')}
+    />
+  );
+};
+```
+
 ### 动态设置显示/ 隐藏:
 
 ```tsx

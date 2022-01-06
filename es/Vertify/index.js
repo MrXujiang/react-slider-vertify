@@ -23,6 +23,8 @@ export default /*#__PURE__*/ memo(function (_ref) {
         : _ref$refreshIcon,
     _ref$visible = _ref.visible,
     visible = _ref$visible === void 0 ? true : _ref$visible,
+    onDraw = _ref.onDraw,
+    onCustomVertify = _ref.onCustomVertify,
     onSuccess = _ref.onSuccess,
     onFail = _ref.onFail,
     onRefresh = _ref.onRefresh;
@@ -188,7 +190,9 @@ export default /*#__PURE__*/ memo(function (_ref) {
     var left = parseInt(blockRef.current.style.left);
     return {
       spliced: Math.abs(left - xRef.current) < 10,
-      verified: stddev !== 0, // 简单验证拖动轨迹，为零时表示Y轴上下没有波动，可能非人为操作
+      verified: stddev !== 0,
+      left: left,
+      destX: xRef.current,
     };
   };
 
@@ -211,6 +215,7 @@ export default /*#__PURE__*/ memo(function (_ref) {
     blockRef.current.style.left = blockLeft + 'px';
     setSliderClass('sliderContainer sliderContainer_active');
     trailRef.current.push(moveY);
+    onDraw && onDraw(blockLeft);
   };
 
   var handleDragEnd = function handleDragEnd(e) {
@@ -220,9 +225,9 @@ export default /*#__PURE__*/ memo(function (_ref) {
     if (eventX === originXRef.current) return false;
     setSliderClass('sliderContainer');
 
-    var _verify = verify(),
-      spliced = _verify.spliced,
-      verified = _verify.verified;
+    var _ref2 = onCustomVertify ? onCustomVertify(verify()) : verify(),
+      spliced = _ref2.spliced,
+      verified = _ref2.verified;
 
     if (spliced) {
       if (verified) {

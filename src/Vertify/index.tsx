@@ -2,6 +2,13 @@ import React, { useRef, useState, useEffect, ReactNode, memo } from 'react';
 import { getRandomNumberByRange, sum, square } from './tool';
 import './index.less';
 
+interface VertifyType {
+  spliced: boolean;
+  verified: boolean; // 简单验证拖动轨迹，为零时表示Y轴上下没有波动，可能非人为操作
+  left: number; // 滑块的移动位置
+  destX: number; // 滑块的目标位置
+}
+
 interface IVertifyProp {
   /**
    * @description   canvas宽度
@@ -44,6 +51,16 @@ interface IVertifyProp {
    */
   imgUrl?: string;
   /**
+   * @description   拖拽滑块时的回调, 参数为当前滑块拖拽的距离
+   * @default       (l: number):void => {}
+   */
+  onDraw?: (l: number) => {};
+  /**
+   * @description   用户的自定义验证逻辑
+   * @default       (arg: VertifyType) => VertifyType
+   */
+  onCustomVertify?: (arg: VertifyType) => VertifyType;
+  /**
    * @description   验证成功回调
    * @default       ():void => {}
    */
@@ -70,6 +87,8 @@ export default memo(
     text,
     refreshIcon = 'http://cdn.dooring.cn/dr/icon12.png',
     visible = true,
+    onDraw,
+    onCustomVertify,
     onSuccess,
     onFail,
     onRefresh,
@@ -213,6 +232,8 @@ export default memo(
       return {
         spliced: Math.abs(left - xRef.current) < 10,
         verified: stddev !== 0, // 简单验证拖动轨迹，为零时表示Y轴上下没有波动，可能非人为操作
+        left,
+        destX: xRef.current,
       };
     };
 
@@ -236,6 +257,7 @@ export default memo(
 
       setSliderClass('sliderContainer sliderContainer_active');
       trailRef.current.push(moveY);
+      onDraw && onDraw(blockLeft);
     };
 
     const handleDragEnd = (e: any) => {
@@ -244,7 +266,9 @@ export default memo(
       const eventX = e.clientX || e.changedTouches[0].clientX;
       if (eventX === originXRef.current) return false;
       setSliderClass('sliderContainer');
-      const { spliced, verified } = verify();
+      const { spliced, verified } = onCustomVertify
+        ? onCustomVertify(verify())
+        : verify();
       if (spliced) {
         if (verified) {
           setSliderClass('sliderContainer sliderContainer_success');
