@@ -72,6 +72,7 @@ export default () => {
 | [dooring-electron-lowcode](https://github.com/MrXujiang/dooring-electron-lowcode) | 基于 electron 的 H5-Dooring 编辑器桌面端.                                               |
 | [DooringX](https://github.com/H5-Dooring/dooringx)                                | 快速高效搭建可视化拖拽平台.                                                             |
 | [Mitu](https://github.com/H5-Dooring/mitu-editor)                                 | 一款轻量级且可扩展的图片/图形编辑器解决方案.                                            |
+| [react-rotate-captcha | 旋转验证码](https://github.com/cgfeel/react-rotate-captcha) | 一个开箱即用的滑动验证码React组件
 
 ## Inspired by
 
